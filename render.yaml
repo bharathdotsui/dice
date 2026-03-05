@@ -1,0 +1,23 @@
+services:
+  - type: worker
+    name: servicenow-job-alert
+    runtime: python
+    buildCommand: pip install -r requirements.txt
+    startCommand: python job_alert.py
+    envVars:
+      - key: ANTHROPIC_API_KEY
+        sync: false
+      - key: SENDGRID_API_KEY
+        sync: false
+      - key: TWILIO_ACCOUNT_SID
+        sync: false
+      - key: TWILIO_AUTH_TOKEN
+        sync: false
+      - key: TWILIO_FROM_NUMBER
+        sync: false
+      - key: ALERT_TO_EMAIL
+        sync: false
+      - key: ALERT_FROM_EMAIL
+        sync: false
+      - key: ALERT_TO_PHONE
+        sync: false
